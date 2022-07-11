@@ -143,14 +143,13 @@ interface RequestOptions {
 }
 async function request(options: RequestOptions) {
   const { id = '', method, body } = options
-  const res = await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}`, {
-    method,
-    headers: {
-      'content-type': 'application/json',
-      'apikey': 'FcKdtJs202204',
-      'username': 'ParkYoungWoong'
-    },
-    body: JSON.stringify(body)
+  const res = await fetch('./netlify/functions/workspace', {
+    method: 'POST', // 서버로 날릴때는 post로 날려야함!!!
+    body: JSON.stringify({
+      id,
+      method,
+      data: body
+    })
   })
   return res.json()
 }
