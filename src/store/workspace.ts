@@ -143,7 +143,7 @@ interface RequestOptions {
 }
 async function request(options: RequestOptions) {
   const { id = '', method, body } = options
-  const res = await fetch('./netlify/functions/workspace', {
+  const res = await fetch('/.netlify/functions/workspace', {
     method: 'POST', // 서버로 날릴때는 post로 날려야함!!!
     body: JSON.stringify({
       id,
