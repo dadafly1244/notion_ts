@@ -6,15 +6,16 @@
 [[edge_functions]]
   path = '/workspaces/*'
   function = 'workspaces' #edge-function에 있는 파일임!!
+[[redirects]]
+  from = '/*'
+  to = '/index.html '
+  status = 200
+  #force = true
+
 
 # [[redirects]]
 #   from = '/workspaces/*'
 #   to = '/.netlify/functions/render'
 #   status = 200
 
-[[redirects]]
-  from = '/*'
-  to = '/index.html '
-  status = 200
-  #force = true
 

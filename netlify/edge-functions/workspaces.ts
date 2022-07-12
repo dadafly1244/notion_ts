@@ -25,7 +25,7 @@ export default async (request: Request, context: Context) => {
   //     },
   //   })
   //   const {title, content, poster} = await res.json()
-  
+
   const userAgent = request.headers.get('user-agent')
   const id = request.url.split('/').filter( p => p).reverse()[0]
 
