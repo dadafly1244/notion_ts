@@ -9,13 +9,29 @@ const PUBLIC_URl = Deno.env.get('PUBLIC_URl') as string
 export default async (request: Request, context: Context) => {  
   console.log('user-agent::', request.headers.get('user-agent'))
   console.log('request.url::', request.url)
+
+  // const userAgent = request.headers.get('user-agent')
+  // const id = request.url.split('/').filter(p=> p).reverse()[0]
+
+  // if (isbot(userAgent)) {
+  //   //봇은... 나가!! 메타정보만 가져가!!
+  //   console.log('BOT!')
+  //   const res =  await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}`,{
+  //     method: 'GET',
+  //     headers: {
+  //       'content-type': 'application/json',
+  //       'apikey': APIKEY,
+  //       'username': USERNAME
+  //     },
+  //   })
+  //   const {title, content, poster} = await res.json()
+  
   const userAgent = request.headers.get('user-agent')
-  const id = request.url.split('/').filter(p=> p).reverse()[0]
+  const id = request.url.split('/').filter( p => p).reverse()[0]
 
   if (isbot(userAgent)) {
-    //봇은... 나가!! 메타정보만 가져가!!
-    console.log('BOT!')
-    const res =  await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}`,{
+    console.log('Bot!!')
+    const res = await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}`,{
       method: 'GET',
       headers: {
         'content-type': 'application/json',
