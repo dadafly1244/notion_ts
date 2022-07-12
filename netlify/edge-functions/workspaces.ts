@@ -15,13 +15,13 @@ export default async (request: Request, context: Context) => {
   if (isbot(userAgent)) {
     //봇은... 나가!! 메타정보만 가져가!!
     console.log('BOT!')
-    const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}',{
+    const res =  await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/notion/workspaces/${id}`,{
       method: 'GET',
       headers: {
         'content-type': 'application/json',
         'apikey': APIKEY,
-        'username': USERNAME 
-      }
+        'username': USERNAME
+      },
     })
     const {title, content, poster} = await res.json()
     
