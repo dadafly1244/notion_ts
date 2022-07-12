@@ -1,6 +1,5 @@
 import { Handler } from '@netlify/functions'
 import axios from 'axios'
-import { mainModule } from 'process'
 
 const {APIKEY, USERNAME, MODE, PUBLIC_URl} = process.env
 
